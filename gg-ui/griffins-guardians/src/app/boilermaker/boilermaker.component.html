@@ -1,7 +1,7 @@
 <div class="container">
     <div class="billboard">
         <h2>Griffin's Guardians 2023 Boilermaker</h2>
-        <p>Griffin's Guardians is one of a select few charities sponsored by the 2023 Boilermaker committee. Using this page, you can see the donations Griffin's Guardians runners have received and make contributions of your own. Each runner is responsible for raising $500, which goes directly to Griffin's Guardians.</p>
+        <p style="font-size: 20px;">Griffin's Guardians is one of a select few charities sponsored by the 2023 Boilermaker committee. Using this page, you can see the donations Griffin's Guardians runners have received and make contributions of your own. Each runner is responsible for raising their own goal, which goes directly to Griffin's Guardians.</p>
     </div>
     <div class="row">
         <div class="col1">
@@ -11,7 +11,7 @@
                         <h3>Donations</h3>
                     </div>
                     <div class="card-body">
-                        <h3>Your are donating <strong>${{currentDonor.ammount}}</strong> to {{currRunner.name}}.</h3>
+                        <h3>You are donating <strong>${{currentDonor.ammount}}</strong> to {{currRunner.name}}.</h3>
                         <p><em>The exact name typed in will be added to the list of donors. Your name will not be added until the payment has been authorized through PayPal.</em></p>
                         <ngx-paypal [config]="paypalConfig"></ngx-paypal>
                     </div>
