@@ -1,0 +1,193 @@
+.container {
+    max-width: 1170px;
+    min-width: 750px;
+    height: none;
+    /* background-color:gray; */
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+    color: #333;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.billboard {
+    max-width: 1140px;
+    min-width: none;
+    min-height: 212.2px;
+    padding: 10px 60px 10px 60px;
+    border-radius: 5px;
+    margin-bottom: 30px;
+    box-sizing: border-box;
+    border: solid;
+    border-color: #3c211c;
+    border-width: 1px;
+    background-image: url('/assets/DzdW2UEWwAAlbjv.jpg');
+    background-repeat: no-repeat;
+    background-position: 0% 25%;
+    text-shadow: black 0.3em 0.3em 0.3em;
+    color: white;
+    
+    line-height: 1.42857143;
+    font-size: 21px;
+    }
+.row {  
+    max-width: 1170px;
+    min-height: 329.2px;
+    height: auto;
+    margin: 0px -15px 0px -15px;
+    /* background-color: aqua; */
+    box-sizing: border-box;
+}
+.col1 {
+    width: 585px;
+    min-height: 100px;
+    height: auto;
+    float: left;
+    padding: 0px 15px 0px 15px;
+    /* background-color: green; */
+    box-sizing: border-box;
+}
+.col2 {
+    width: 585px;
+    min-height: 100px;
+    height: auto;
+    float: right;
+    padding: 0px 15px 0px 15px;
+    /* background-color: blue; */
+    box-sizing: border-box;
+}
+.card {
+    max-width: 555px;
+    min-width: none;
+    min-height: 100px;
+    height: auto;
+    margin: 0px 0px 20px 0px;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+.card-header {
+    min-width: none;
+    max-width: 553px;
+    min-height: auto;
+    max-height: 39px;
+    padding: 10px 15px 10px 15px;
+    border: solid;
+    border-color: #3c211c;
+    border-width: 1px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    background-color: #f14040;
+    box-sizing: border-box;
+}
+.card-body {
+    min-width: none;
+    max-width: 553px;
+    min-height: 60px;
+    padding: 10px 15px 10px 15px;
+    border: solid;
+    border-color: #3c211c;
+    border-width: 0px 1px 1px 1px;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    background-color: white;
+    box-sizing: border-box;
+
+}
+.progressbar-outer {
+    max-width: 523px;
+    min-width: none;
+    height: 20px;
+    border-radius: 4px;
+    margin: 0px 0px 20px 0px;
+    border: solid;
+    border-color: #3c211c;
+    border-width: 1px;
+    background-color: #f9f9f9;
+    box-sizing: border-box;
+    
+}
+.progressbar-inner {
+    height: 20px;
+    margin: -1px 0px 0px 0px;
+    border-radius: 3px;
+    border: solid;
+    border-color: #3c211c;
+    border-width: 1px 1px 1px 0px;
+    background-color: lightcoral;
+    box-sizing: border-box;
+}
+.donorlist {
+    max-width: 523px;
+    min-width: none;
+    height: auto;
+    /* background-color: yellow; */
+    margin: 0px 0px 20px 0px;
+    box-sizing: border-box;
+}
+.donorlist-header {
+    padding: 0px 0px 8px 8px;
+    max-width: 523px;
+    min-width: none;
+    height: 36px;
+    /* background-color: orange; */
+    box-sizing: border-box;
+    
+}
+.donorlist-body {
+    max-width: 523px;
+    min-width: none;
+    height: 38px;
+    padding: 8px;
+    border: solid;
+    border-width: 1px 0px 0px 0px;
+    border-color: #3c211c;
+    box-sizing: border-box;
+}
+.donatebtn {
+    width: 80px;
+    height: 40px;
+    background-color: #f14040;
+}
+.inputfield {
+    margin: 0px 8px 20px 0px
+}
+.dropbtn {
+    width: 200px;
+    height: 34px;
+    text-align: left;
+    border: 2px solid #3c211c;
+    background-color: white;
+    padding: 8px 0px 8px 5px;
+    font-size: 16px;
+    border: none;
+}
+.dropdown {
+    border-radius: 4px;
+    border: 1px solid #3c211c;
+    position: relative;
+    display: inline-block;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+.dropdown-content a {
+    width: 200px;
+    height: 25px;
+    color: black;
+    padding: 12px 0px 12px 5px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #ddd;}
+.dropdown:hover .dropdown-content {display: block;}
+/* .dropdown:hover .dropbtn {background-color: #f1f1f1;} */
+h2 {font-size: 52px;}
+h3 {margin: 0px 0px 0px 0px;}
+p {font-size: 14px; margin: 0px 0px 20px 0px;}

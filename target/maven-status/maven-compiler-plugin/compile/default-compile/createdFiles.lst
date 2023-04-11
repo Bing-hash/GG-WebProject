@@ -1,0 +1,8 @@
+com\ggweb\api\persistance\RunnerDAO.class
+com\ggweb\api\controller\RunnerController.class
+com\ggweb\api\persistance\RunnerFileDAO.class
+com\ggweb\api\WebConfig.class
+com\ggweb\api\model\Runner.class
+com\ggweb\api\persistance\DonorDAO.class
+com\ggweb\api\GgapiApplication.class
+com\ggweb\api\model\Donor.class

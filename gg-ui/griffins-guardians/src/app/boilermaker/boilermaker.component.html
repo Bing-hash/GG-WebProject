@@ -1,0 +1,134 @@
+<div class="container">
+    <div class="billboard">
+        <h2>Griffin's Guardians 2023 Boilermaker</h2>
+        <p>Griffin's Guardians is one of a select few charities sponsored by the 2023 Boilermaker committee. Using this page, you can see the donations Griffin's Guardians runners have received and make contributions of your own. Each runner is responsible for raising $500, which goes directly to Griffin's Guardians.</p>
+    </div>
+    <div class="row">
+        <div class="col1">
+            <div *ngIf="currentDonor.name != undefined">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Donations</h3>
+                    </div>
+                    <div class="card-body">
+                        <h3>Your are donating <strong>${{currentDonor.ammount}}</strong> to {{currRunner.name}}.</h3>
+                        <p><em>The exact name typed in will be added to the list of donors. Your name will not be added until the payment has been authorized through PayPal.</em></p>
+                        <ngx-paypal [config]="paypalConfig"></ngx-paypal>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="authBool">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Thank you {{currentDonor.name}} for your donation!</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>Your payment has been processed, refresh the page and select your runner to see your name!</p>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="currRunner.id == undefined; else elseBlock1">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Donations</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>Select a runner to make a donation or see their current donations.</p>
+                    </div>
+                </div>
+            </div>
+            
+            
+            <ng-template #elseBlock1>
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Donations</h3>
+                    </div>
+                    <div class="card-body">
+                        <h4 style="font-size: 18px; margin: 10px 0px 10px 0px;">{{currRunner.name}} has raised <strong>${{currRunner.total.toFixed(2)}}</strong></h4>
+                        {{currRunner.name}} is <strong>{{currRunnerPercent}}%</strong> to their way to their goal of ${{currRunner.goal.toFixed(2)}}!<br>
+                        <div class="progressbar-outer">                                   
+                            <div class="progressbar-inner" [style.max-width.px]="percentBarLength"></div>
+                        </div>
+                        <p>To contribute to their cause, enter your name and a donation amount below:</p>
+                        
+                        <input required class="inputfield" id="name" type="text" placeholder="Riley Smith" [(ngModel)]="nameInp" size="20px">
+                        <input required class="inputfield" id="amount" type="number" step="0.01" min="0.01" placeholder="25.00" [(ngModel)]="ammountInp">
+                        <button class="donatebtn" (click)="changeCurrentDonor()">Donate!</button>
+                        
+                        <div class="donorlist">
+                            <div class="donorlist-header">
+                                <h5 style="float: left; width: 385px; margin: 0px 0px 0px 0px;"><strong>Donor</strong></h5>
+                                <h5 style="float: left; margin: 0px 0px 0px 0px;"><strong>Amount</strong></h5>
+                            </div>
+                            <div *ngFor="let donor of currRunner.donors">
+                                <div *ngIf="flipper(); else elseBlock2">
+                                    <div class="donorlist-body" style="background-color: #f9f9f9;">
+                                        <h5 style="float: left; width: 385px; margin: 0px 0px 0px 0px;">{{donor.name}}</h5>
+                                        <h5 style="float: left; margin: 0px 0px 0px 0px;">${{donor.ammount.toFixed(2)}}</h5>
+                                    </div>
+                                </div>
+                                <ng-template #elseBlock2>
+                                    <div class="donorlist-body">
+                                        <h5 style="float: left; width: 385px; margin: 0px 0px 0px 0px;">{{donor.name}}</h5>
+                                        <h5 style="float: left; margin: 0px 0px 0px 0px;">${{donor.ammount.toFixed(2)}}</h5>
+                                    </div>
+                                </ng-template>
+                                
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+            
+        </div>
+        <div class="col2">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Select a runner</h3>
+                </div>
+                <div class="card-body">
+                    <p>Choose a runner below to see a runner's donations or make a donation.</p>
+                    <div class="dropdown">
+                        <button class="dropbtn">Select a runner ▼</button>
+                        <div class="dropdown-content">
+                            <div *ngFor="let runner of runners">
+                                <a (click)="changeCurrentRunner(runner.id)">{{runner.name}}</a>
+                            </div>
+                                
+                        </div>
+                    </div> 
+                </div>
+            </div>
+            <!-- <div class="card">
+                <div class="card-header">
+                    <h3>Add a new runner</h3>
+                </div>
+                <div class="card-body">
+                    <p>Is a runner missing from the above list? Enter their full name below.</p>
+                </div>
+            </div> -->
+        </div>
+    </div>
+    <!-- <div><span>name: </span>{{currentDonor.name}}</div>
+    <div><span>amount: </span>{{currentDonor.ammount}}</div> -->
+    <!-- <li *ngFor="let runner of runners">
+        <button type="button" (click)="changeCurrentRunner(runner.id)">{{runner.name}}</button>
+    </li> -->
+</div>
+<!-- <footer>
+    
+    <div><span>id: </span>{{currRunner.id}}</div>
+    <div><span>name: </span>{{currRunner.name}}</div>
+    <div><span>total: </span>{{currRunner.total}}</div>
+    <div><span>percent: </span>{{currRunnerPercent}}</div>
+    <div><span>barlen: </span>{{percentBarLength}}</div>
+    <li *ngFor="let donor of currRunner.donors">
+        <p>Name: {{donor.name}}</p>
+        <p>Ammount: {{donor.ammount}}</p>
+    </li>
+</footer> -->
+
+
+
