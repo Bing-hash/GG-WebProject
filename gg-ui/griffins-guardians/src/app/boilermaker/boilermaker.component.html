@@ -13,7 +13,8 @@
                     <div class="card-body">
                         <h3>You are donating <strong>${{currentDonor.ammount}}</strong> to {{currRunner.name}}.</h3>
                         <p><em>The exact name typed in will be added to the list of donors. Your name will not be added until the payment has been authorized through PayPal.</em></p>
-                        <ngx-paypal [config]="paypalConfig"></ngx-paypal>
+                        <div id="myPalpalButtons"></div>
+                        <!-- <ngx-paypal [config]="paypalConfig"></ngx-paypal> -->
                     </div>
                 </div>
             </div>

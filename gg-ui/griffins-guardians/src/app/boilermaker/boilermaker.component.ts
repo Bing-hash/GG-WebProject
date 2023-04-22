@@ -2,7 +2,8 @@ import { Component, AfterViewChecked, ViewChild, ElementRef, resolveForwardRef }
 import { Donor } from '../donor';
 import { Runner } from '../runner';
 import { BoilermakerService } from '../boilermaker.service';
-import { IPayPalConfig, ICreateOrderRequest } from 'ngx-paypal/public_api';
+import { render } from 'creditcardpayments/creditCardPayments';
+// import { IPayPalConfig, ICreateOrderRequest } from 'ngx-paypal/public_api';
 
 declare let paypal: any;
 
@@ -35,62 +36,62 @@ export class BoilermakerComponent {
   currentDonor = <Donor>{};
   lastDonorName: String;
 
-  public paypalConfig?: IPayPalConfig;
+  // public paypalConfig?: IPayPalConfig;
 
   authBool: boolean = false;
 
-  private initConfig(): void {
-    this.paypalConfig = {
-      currency: 'USD',
-      clientId: 'ATSIJPSRpc_GDmcSISF9LLMHu8Gtmwotvz7Hd6fbp5JvaAyqkrb77hbyqCUnVVOM7fahjU_LlAf7OS8p',
-      createOrderOnClient: (data) => <ICreateOrderRequest>{
-        intent: 'CAPTURE',
-        purchase_units: [
-          {
-            amount: {
-              currency_code: 'USD',
-              value: this.currentDonor.ammount.toString(),
-              breakdown: {
-                item_total: {
-                  currency_code: 'USD',
-                  value: this.currentDonor.ammount.toString()
-                }
-              }
-            },
-            // items: [
-            //   {
-            //     name: 'Donation to '+this.currRunner.name,
-            //     quantity: '1',
-            //     category
+  // private initConfig(): void {
+  //   this.paypalConfig = {
+  //     currency: 'USD',
+  //     clientId: 'ATSIJPSRpc_GDmcSISF9LLMHu8Gtmwotvz7Hd6fbp5JvaAyqkrb77hbyqCUnVVOM7fahjU_LlAf7OS8p',
+  //     createOrderOnClient: (data) => <ICreateOrderRequest>{
+  //       intent: 'CAPTURE',
+  //       purchase_units: [
+  //         {
+  //           amount: {
+  //             currency_code: 'USD',
+  //             value: this.currentDonor.ammount.toString(),
+  //             breakdown: {
+  //               item_total: {
+  //                 currency_code: 'USD',
+  //                 value: this.currentDonor.ammount.toString()
+  //               }
+  //             }
+  //           },
+  //           // items: [
+  //           //   {
+  //           //     name: 'Donation to '+this.currRunner.name,
+  //           //     quantity: '1',
+  //           //     category
                 
-            //   }
-            // ]
-          }
-        ]
-      },
-      advanced: {
-        commit: 'true'
-      },
-      style: {
-        label: 'paypal',
-        layout: 'vertical'
-      },
-      onApprove: (data, actions) => {
-        console.log('onApprove - transaction was approved, but not authorized', data, actions);
-        actions.order.get().then(details => {
-          console.log('onApprove - you can get full order details inside onApprove: ', details);
-        });
-      },
-      onClientAuthorization: (data) => {
-        console.log('Client authorized payment');
-        // do stuff here on authorization
-        this.onAuthorize();
-      },
-      onError: err => {
-        console.log('OnError', err);
-      }
-    };
-  }
+  //           //   }
+  //           // ]
+  //         }
+  //       ]
+  //     },
+  //     advanced: {
+  //       commit: 'true'
+  //     },
+  //     style: {
+  //       label: 'paypal',
+  //       layout: 'vertical'
+  //     },
+  //     onApprove: (data, actions) => {
+  //       console.log('onApprove - transaction was approved, but not authorized', data, actions);
+  //       actions.order.get().then(details => {
+  //         console.log('onApprove - you can get full order details inside onApprove: ', details);
+  //       });
+  //     },
+  //     onClientAuthorization: (data) => {
+  //       console.log('Client authorized payment');
+  //       // do stuff here on authorization
+  //       this.onAuthorize();
+  //     },
+  //     onError: err => {
+  //       console.log('OnError', err);
+  //     }
+  //   };
+  // }
 
   
 
@@ -109,6 +110,10 @@ export class BoilermakerComponent {
     run.total = tempTotal;
 
     
+  }
+
+  delay(ms: number) {
+    return new Promise( resolve => setTimeout(resolve, ms) );
   }
 
   changeCurrentRunner(id: number): void {
@@ -135,7 +140,7 @@ export class BoilermakerComponent {
     return this.flip;
   }
 
-  changeCurrentDonor(): void {
+  async changeCurrentDonor(): Promise<void> {
     let name: string = ((document.getElementById("name") as HTMLInputElement).value);
     let amount: number = +((document.getElementById("amount") as HTMLInputElement).value);
     if(amount == 0) {
@@ -143,7 +148,21 @@ export class BoilermakerComponent {
     }
     let newDonor = <Donor>{name: name, ammount:amount};
     this.currentDonor = newDonor;
-    this.initConfig();
+    await this.delay(1000)
+    // this.initConfig();
+    render(
+      {
+        id: "#myPalpalButtons",
+        currency: "USD",
+        value: this.currentDonor.ammount.toString(),
+        onApprove: (details) => {
+          console.log('Client authorized payment');
+          // do stuff here on authorization
+          this.onAuthorize();
+        }
+        
+      }
+    )
   }
 
   onAuthorize(): void {

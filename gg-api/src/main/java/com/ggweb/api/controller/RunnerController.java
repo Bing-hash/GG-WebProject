@@ -7,6 +7,7 @@ import java.util.logging.Logger;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -40,6 +41,7 @@ public class RunnerController {
     // Gets all runners
     // If there are no runners, returns HTTP not found message
     // If the runner DAO thows an exception, returns HTTP bad request message 
+    @CrossOrigin
     @GetMapping("")
     public ResponseEntity<Runner[]> getRunners() {
         LOG.info("GET /runners");
@@ -142,7 +144,7 @@ public class RunnerController {
     //         return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     //     }
     // }
-
+    @CrossOrigin
     @PutMapping("/{id}/{donorName}/{donorAmount}")
     public ResponseEntity<Runner> addDonor(@PathVariable int id, @PathVariable String donorName, @PathVariable double donorAmount) {
         LOG.info("PUT /runners " + id + " " + donorName + " " + donorAmount);
