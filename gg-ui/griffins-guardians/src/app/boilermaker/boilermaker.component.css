@@ -52,7 +52,7 @@
     width: 585px;
     min-height: 100px;
     height: auto;
-    float: right;
+    float: left;
     padding: 0px 15px 0px 15px;
     /* background-color: blue; */
     box-sizing: border-box;
