@@ -16,7 +16,7 @@ export class BoilermakerService {
   constructor(private http: HttpClient, private messageService: MessageService) { }
 
   getRunners(): Observable<Runner[]> {
-    return this.http.get<Runner[]>(this.baseurl)
+    return this.http.get<Runner[]>(this.baseurl);
     // const runners = of(RUNNERS);
     // this.log('grabbed runners');
 
