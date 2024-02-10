@@ -1,9 +1,8 @@
-import { Component, AfterViewChecked, ViewChild, ElementRef, resolveForwardRef } from '@angular/core';
+import { Component, AfterViewChecked, ViewChild, ElementRef, resolveForwardRef, OnInit } from '@angular/core';
 import { Donor } from '../donor';
 import { Runner } from '../runner';
 import { BoilermakerService } from '../boilermaker.service';
 import { render } from 'creditcardpayments/creditCardPayments';
-// import { IPayPalConfig, ICreateOrderRequest } from 'ngx-paypal/public_api';
 
 declare let paypal: any;
 
@@ -16,11 +15,13 @@ declare let paypal: any;
 export class BoilermakerComponent {
   
 
+
   constructor(private boilermakerService: BoilermakerService) {}
 
   ngOnInit(): void {
     this.getRunners();
   }
+
 
   addScript: boolean = false;
 
@@ -39,59 +40,6 @@ export class BoilermakerComponent {
   // public paypalConfig?: IPayPalConfig;
 
   authBool: boolean = false;
-
-  // private initConfig(): void {
-  //   this.paypalConfig = {
-  //     currency: 'USD',
-  //     clientId: 'ATSIJPSRpc_GDmcSISF9LLMHu8Gtmwotvz7Hd6fbp5JvaAyqkrb77hbyqCUnVVOM7fahjU_LlAf7OS8p',
-  //     createOrderOnClient: (data) => <ICreateOrderRequest>{
-  //       intent: 'CAPTURE',
-  //       purchase_units: [
-  //         {
-  //           amount: {
-  //             currency_code: 'USD',
-  //             value: this.currentDonor.ammount.toString(),
-  //             breakdown: {
-  //               item_total: {
-  //                 currency_code: 'USD',
-  //                 value: this.currentDonor.ammount.toString()
-  //               }
-  //             }
-  //           },
-  //           // items: [
-  //           //   {
-  //           //     name: 'Donation to '+this.currRunner.name,
-  //           //     quantity: '1',
-  //           //     category
-                
-  //           //   }
-  //           // ]
-  //         }
-  //       ]
-  //     },
-  //     advanced: {
-  //       commit: 'true'
-  //     },
-  //     style: {
-  //       label: 'paypal',
-  //       layout: 'vertical'
-  //     },
-  //     onApprove: (data, actions) => {
-  //       console.log('onApprove - transaction was approved, but not authorized', data, actions);
-  //       actions.order.get().then(details => {
-  //         console.log('onApprove - you can get full order details inside onApprove: ', details);
-  //       });
-  //     },
-  //     onClientAuthorization: (data) => {
-  //       console.log('Client authorized payment');
-  //       // do stuff here on authorization
-  //       this.onAuthorize();
-  //     },
-  //     onError: err => {
-  //       console.log('OnError', err);
-  //     }
-  //   };
-  // }
 
   
 

@@ -117,14 +117,7 @@
     background-color: lightcoral;
     box-sizing: border-box;
 }
-.donorlist {
-    max-width: 523px;
-    min-width: none;
-    height: auto;
-    /* background-color: yellow; */
-    margin: 0px 0px 20px 0px;
-    box-sizing: border-box;
-}
+
 .donorlist-header {
     padding: 0px 0px 8px 8px;
     max-width: 523px;
@@ -134,16 +127,33 @@
     box-sizing: border-box;
     
 }
-.donorlist-body {
-    max-width: 523px;
-    min-width: none;
-    height: 38px;
-    padding: 8px;
-    border: solid;
-    border-width: 1px 0px 0px 0px;
-    border-color: #3c211c;
-    box-sizing: border-box;
+table {
+    width: 100%;
+    width: none;
+    height: auto;
+    /* background-color: yellow; */
+    margin: 0px 0px 20px 0px;
+    border-collapse: collapse;
 }
+
+tr {
+    width: 100%;
+    
+}
+
+th, td {
+    width: 50%; 
+    padding: 8px 8px 8px 8px;
+    
+}
+
+tr:nth-child(2n+1):not(:first-child){
+background-color: #d9d9d9;
+}
+table td {
+    border: 1px solid black;
+}
+
 .donatebtn {
     width: 80px;
     height: 40px;
