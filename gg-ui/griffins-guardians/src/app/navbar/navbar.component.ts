@@ -36,10 +36,10 @@ ngOnInit() {}
       textElement3.style.fontSize = "10px";
       textElement4.style.fontSize = "10px";
       
-      buttElement1.style.width = "70px";
-      buttElement2.style.width = "70px";
-      buttElement3.style.width = "70px";
-      buttElement4.style.width = "70px";
+      // buttElement1.style.width = "10%";
+      // buttElement2.style.width = "10%";
+      // buttElement3.style.width = "10%";
+      // buttElement4.style.width = "10%";
     } else {
       navbarElement.style.paddingTop = "20px";
       logobckgrdElement.style.marginTop = "-5px";
@@ -48,10 +48,10 @@ ngOnInit() {}
       textElement3.style.fontSize = "12px";     
       textElement4.style.fontSize = "12px";
       
-      buttElement1.style.width = "90px";
-      buttElement2.style.width = "90px";
-      buttElement3.style.width = "90px";
-      buttElement4.style.width = "90px";
+      // buttElement1.style.width = "auto";
+      // buttElement2.style.width = "auto";
+      // buttElement3.style.width = "auto";
+      // buttElement4.style.width = "auto";
     }
   }
   

@@ -4,7 +4,7 @@
     /* background-color:gray; */
     padding-left: 5%;
     padding-right: 5%;
-    margin: auto;
+    margin: 0;
     box-sizing: border-box;
     color: #333;
     font-family: Arial, Helvetica, sans-serif;
@@ -17,6 +17,7 @@
     padding: 10px 10% 10px 10%;
     border-radius: 5px;
     margin: auto;
+    margin-top: 30px;
     margin-bottom: 30px;
     box-sizing: border-box;
     border: solid;
@@ -70,8 +71,8 @@
 .card-header {
     min-width: none;
     max-width: 553px;
-    min-height: auto;
-    max-height: 39px;
+    min-height: 39px;
+    max-height: 78px;
     padding: 10px 15px 10px 15px;
     border: solid;
     border-color: #3c211c;
@@ -164,8 +165,8 @@ table td {
     margin: 0px 8px 20px 0px
 }
 .dropbtn {
-    width: 200px;
-    height: 34px;
+    width: 100%;
+    height: 100%;
     text-align: left;
     border: 2px solid #3c211c;
     background-color: white;
@@ -174,6 +175,7 @@ table td {
     border: none;
 }
 .dropdown {
+    width: 100%;
     border-radius: 4px;
     border: 1px solid #3c211c;
     position: relative;
@@ -183,12 +185,12 @@ table td {
     display: none;
     position: absolute;
     background-color: #f1f1f1;
-    min-width: 160px;
+    width: 100%;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
 }
 .dropdown-content a {
-    width: 200px;
+    width: 100%;
     height: 25px;
     color: black;
     padding: 12px 0px 12px 5px;
