@@ -1,6 +1,7 @@
+
 .container {
     width: 100%;
-    min-width: 730px;
+    margin: 0px;
     height: 74px;
     display: flex;
     top: 0px;
@@ -8,10 +9,9 @@
 }
 .navbar {
     width: 100%;
-    min-width: 730px;
     height: 55px;
     padding: 20px 20px;
-    margin: -30px -10px 50px -10px;
+    margin: 0px;
     display: flex;
     top: 0px;
     position: relative;

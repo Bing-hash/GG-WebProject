@@ -1,22 +1,22 @@
 .container {
-    max-width: 1170px;
-    min-width: 750px;
+    width: 100%;
     height: none;
     /* background-color:gray; */
-    padding-left: 15px;
-    padding-right: 15px;
-    margin-left: auto;
-    margin-right: auto;
+    padding-left: 5%;
+    padding-right: 5%;
+    margin: auto;
     box-sizing: border-box;
     color: #333;
     font-family: Arial, Helvetica, sans-serif;
 }
 .billboard {
+    width: 100%;
     max-width: 1140px;
     min-width: none;
     min-height: 212.2px;
-    padding: 10px 60px 10px 60px;
+    padding: 10px 10% 10px 10%;
     border-radius: 5px;
+    margin: auto;
     margin-bottom: 30px;
     box-sizing: border-box;
     border: solid;
@@ -35,12 +35,12 @@
     max-width: 1170px;
     min-height: 329.2px;
     height: auto;
-    margin: 0px -15px 0px -15px;
-    /* background-color: aqua; */
+    margin: auto;    /* background-color: aqua; */
     box-sizing: border-box;
 }
 .col1 {
-    width: 585px;
+    width: 50%;
+    min-width: none;
     min-height: 100px;
     height: auto;
     float: left;
@@ -49,7 +49,8 @@
     box-sizing: border-box;
 }
 .col2 {
-    width: 585px;
+    width: 50%;
+    min-width: none;
     min-height: 100px;
     height: auto;
     float: left;

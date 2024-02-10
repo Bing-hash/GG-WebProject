@@ -1,1 +1,1 @@
-[{"id":1,"name":"Test Testerson","donors":[],"goal":500.0,"total":0.0}]
+[{"id":1,"name":"Test Testerson","donors":[{"name":"Test Testerson", "ammount":100.00},{"name":"Test Testerson", "ammount":100.00},{"name":"Test Testerson", "ammount":100.00},{"name":"Test Testerson", "ammount":100.00}],"goal":500.0,"total":0.0}]
